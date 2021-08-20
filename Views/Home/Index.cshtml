@@ -1,0 +1,578 @@
+﻿@model IEnumerable<BTS.Models.sp_BTS_CalculaLostSize_Result2>
+
+@{
+    ViewBag.Title = "Bienvenido";
+}
+<style>
+    small, .small {
+        font-size: 125%;
+    }
+
+    .progress .progress-label:before {
+        font-size: 10px;
+        margin-top: 12px;
+        margin-right: -25px;
+    }
+
+    div.dataTables_wrapper div.dataTables_filter input {
+        width: 500px;
+    }
+
+    div.dataTables_wrapper div.dataTables_filter {
+        text-align: left;
+        margin-left: 25px;
+    }
+
+    [type="search"] {
+        height: 35px;
+        margin-right: 20px;
+    }
+
+    .table th, .table td {
+        padding: 0.2rem 0.5rem;
+    }
+
+    body {
+        font-size: 10px;
+    }
+
+    html body .content .content-wrapper .content-header-title {
+        color: #121213;
+        margin-right: 1rem;
+        border-right: 1px solid #1a1a1b;
+    }
+
+
+    table {
+        overflow: hidden;
+    }
+
+    tr:hover {
+        background-color: #ffa;
+    }
+
+    td, th {
+        position: relative;
+    }
+
+        td:hover::after,
+        th:hover::after {
+            content: "";
+            position: absolute;
+            background-color: #ffa;
+            left: 0;
+            top: -5000px;
+            height: 10000px;
+            width: 100%;
+            z-index: -1;
+        }
+</style>
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+
+    window.onload = function () {
+
+        pantalla = document.getElementById("screen");
+    }
+
+</script>
+
+<script src="~/app-assets/js/core/libraries/jquery.min.js"></script>
+
+
+<script language="javascript" type="text/javascript">
+
+    var PonerColor = true;
+
+    $(document).ready(function () {
+       Activar();
+       var pIdLinea = 0;
+       if ($('#IdLinea').val() != "")
+           pIdLinea = $('#IdLinea').val();
+            $.ajax({
+            type: 'GET',
+            url: '@Url.Action("Views", "Home")',
+            dataType: 'json',
+                data: { IdLinea: pIdLinea },
+                   success: function (data) {
+                       var newHtml = '';
+                       var i;
+                       $("#llenar").empty();
+                       for (i = 0; i < data.length; i++) {
+
+
+                           var pattern = /Date\(([^)]+)\)/;
+                           //var results = pattern.exec(data[i].INICIO);
+                           //var dt = new Date(parseFloat(results[1]));
+                           //var INICIO = dt.toLocaleTimeString();
+
+                           var JobNumber = "";
+                           if (data[i].JobNumber != null)
+                               JobNumber = data[i].JobNumber;
+
+                           var DieSet = "";
+                           if (data[i].DieSet != null)
+                               DieSet = data[i].DieSet;
+
+                           var NoParte = "";
+                           if (data[i].NoParte != null)
+                               NoParte = data[i].NoParte;
+
+                           var Descripcion = "";
+                           if (data[i].Descripcion != null)
+                               Descripcion = data[i].Descripcion;
+
+                           //var RUN = "";
+                           //if (data[i].RUN != null) {
+                           //    var results2 = pattern.exec(data[i].RUN);
+                           //    var dt2 = new Date(parseFloat(results2[1]));
+                           //    RUN = dt2.toLocaleTimeString();
+                           //}
+
+                           var Lunes_T = 0;
+                           if (data[i].Lunes_T != null)
+                               Lunes_T = data[i].Lunes_T;
+
+                           var Lunes_R = 0;
+                           if (data[i].Lunes_R != null)
+                               Lunes_R = data[i].Lunes_R;
+
+                           var Martes_T = 0;
+                           if (data[i].Martes_T != null)
+                               Martes_T = data[i].Martes_T;
+
+                           var Martes_R = 0;
+                           if (data[i].Martes_R != null)
+                               Martes_R = data[i].Martes_R;
+
+                           var Miercoles_T = 0;
+                           if (data[i].Miercoles_T != null)
+                               Miercoles_T = data[i].Miercoles_T;
+
+                           var Miercoles_R = 0;
+                           if (data[i].Miercoles_R != null)
+                               Miercoles_R = data[i].Miercoles_R;
+
+                           var Jueves_T = 0;
+                           if (data[i].Jueves_T != null)
+                               Jueves_T = data[i].Jueves_T;
+
+                           var Jueves_R = 0;
+                           if (data[i].Jueves_R != null)
+                               Jueves_R = data[i].Jueves_R;
+
+                           var Viernes_T = 0;
+                           if (data[i].Viernes_T != null)
+                               Viernes_T = data[i].Viernes_T;
+
+                           var Viernes_R = 0;
+                           if (data[i].Viernes_R != null)
+                               Viernes_R = data[i].Viernes_R;
+
+                           var Sabado_T = 0;
+                           if (data[i].Sabado_T != null)
+                               Sabado_T = data[i].Sabado_T;
+
+
+                           var Sabado_R = 0;
+                           if (data[i].Sabado_R != null)
+                               Sabado_R = data[i].Sabado_R;
+
+                           var Domingo_T = 0;
+                           if (data[i].Domingo_T != null)
+                               Domingo_T = data[i].Domingo_T;
+
+                           var Domingo_R = 0;
+                           if (data[i].Domingo_R != null)
+                               Domingo_R = data[i].Domingo_R;
+
+                           var Total_T = 0;
+                           if (data[i].Total_T != null)
+                               Total_T = data[i].Total_T;
+
+                           var Total_R = 0;
+                           if (data[i].Total_R != null)
+                               Total_R = data[i].Total_R;
+
+                           var Comentarios = "";
+                           if (data[i].Comentarios != null)
+                               Comentarios = data[i].Comentarios;
+
+                           var BTS = 0;
+                           if (data[i].BTS != null)
+                               BTS = data[i].BTS;
+
+                           var PastDue = 0;
+                           if (data[i].PastDue != null)
+                               PastDue = data[i].PastDue;
+
+                           var Inventarios = 0;
+                           if (data[i].Inventarios != null)
+                               Inventarios = data[i].Inventarios;
+
+                           var BanderaDia = 0;
+                           if (data[i].BanderaDia != null)
+                               BanderaDia = data[i].BanderaDia;
+
+
+                           newHtml += '<tr style="font-size:10px;"><td class="text-center">' + JobNumber + '</td>' +
+                               '<td class="text-center">' + DieSet + '</td>' +
+                               '<td class="text-center">' + NoParte + '</td>' +
+                               '<td>' + Descripcion + '</td>' +
+                               '<td class="text-center" style="background-color:' + colorFondo(Lunes_T, Lunes_R, BanderaDia, 'Lun' ) + ';">' + Lunes_R + '/' + Lunes_T + '</td>' +
+                               '<td class="text-center" style="background-color:' + colorFondo(Martes_T, Martes_R, BanderaDia, 'Mar') + ';">' + Martes_R + '/' + Martes_T + '</td>' +
+                               '<td class="text-center" style="background-color:' + colorFondo(Miercoles_T, Miercoles_R, BanderaDia, 'Mie') + ';">' + Miercoles_R + '/' + Miercoles_T + '</td>' +
+                               '<td class="text-center" style="background-color:' + colorFondo(Jueves_T, Jueves_R, BanderaDia, 'Jue') + ';">' + Jueves_R + '/' + Jueves_T + '</td>' +
+                               '<td class="text-center" style="background-color:' + colorFondo(Viernes_T, Viernes_R, BanderaDia, 'Vie') + ';">' + Viernes_R + '/' + Viernes_T + '</td>' +
+                               '<td class="text-center" style="background-color:' + colorFondo(Sabado_T, Sabado_R, BanderaDia, 'Sab') + ';">' + Sabado_R + '/' + Sabado_T + '</td>' +
+                               '<td class="text-center" style="background-color:' + colorFondo(Domingo_T, Domingo_R, BanderaDia,'Dom') + ';">' + Domingo_R + '/' + Domingo_T + '</td>' +
+                               '<td class="text-center">' + Comentarios + '</td>' +
+                               '<td class="text-center" style="background-color:' + colorFondo(Total_T, Total_R, 1, 'Tot') + ';">' + Total_R + '/' + Total_T + '</td>';
+                           if (BTS != 0) {
+                               newHtml += '<td class="text-center">' + BTS.toFixed(2) + '</td>';
+                           } else {
+                               newHtml += '<td class="text-center">0</td>';
+                           }
+
+                           newHtml += '<td class="text-center">' + PastDue + '</td>' +
+                               '<td class="text-center">' + Inventarios + '</td>' +
+                               '</tr>';
+
+                           PonerColor = true;
+                       }
+
+                       $('#llenar').html(newHtml);
+                       Desactivar();
+
+
+            },
+            error: function (ex) {
+                Desactivar();
+                var r = jQuery.parseJSON(response.responseText);
+                alert("Message: " + r.Message);
+                alert("StackTrace: " + r.StackTrace);
+                alert("ExceptionType: " + r.ExceptionType);
+            }
+        });
+
+
+
+
+    });
+    setInterval('news()', 1800000);
+    function news() {
+        Activar();
+        var pIdLinea = 0;
+        var pFecha = Date.now();
+
+        if ($('#IdLinea').val() != "")
+            pIdLinea = $('#IdLinea').val();
+
+        if ($('#inicio').val() != "")
+            pFecha = $('#inicio').val();
+
+              $.ajax({
+            type: 'GET',
+            url: '@Url.Action("Views", "Home")',
+            dataType: 'json',
+                  data: { IdLinea: pIdLinea, inicio: pFecha },
+                   success: function (data) {
+                       var newHtml = '';
+
+                       var i;
+                       $("#llenar").empty();
+
+                       for (i = 0; i < data.length; i++) {
+
+
+                           var pattern = /Date\(([^)]+)\)/;
+                           //var results = pattern.exec(data[i].INICIO);
+                           //var dt = new Date(parseFloat(results[1]));
+                           //var INICIO = dt.toLocaleTimeString();
+
+                           var JobNumber = "";
+                           if (data[i].JobNumber != null)
+                               JobNumber = data[i].JobNumber;
+
+                           var DieSet = "";
+                           if (data[i].DieSet != null)
+                               DieSet = data[i].DieSet;
+
+                           var NoParte = "";
+                           if (data[i].NoParte != null)
+                               NoParte = data[i].NoParte;
+
+                           var Descripcion = "";
+                           if (data[i].Descripcion != null)
+                               Descripcion = data[i].Descripcion;
+
+                           //var RUN = "";
+                           //if (data[i].RUN != null) {
+                           //    var results2 = pattern.exec(data[i].RUN);
+                           //    var dt2 = new Date(parseFloat(results2[1]));
+                           //    RUN = dt2.toLocaleTimeString();
+                           //}
+
+                           var Lunes_T = 0;
+                           if (data[i].Lunes_T != null)
+                               Lunes_T = data[i].Lunes_T;
+
+                           var Lunes_R = 0;
+                           if (data[i].Lunes_R != null)
+                               Lunes_R = data[i].Lunes_R;
+
+                           var Martes_T = 0;
+                           if (data[i].Martes_T != null)
+                               Martes_T = data[i].Martes_T;
+
+                           var Martes_R = 0;
+                           if (data[i].Martes_R != null)
+                               Martes_R = data[i].Martes_R;
+
+                           var Miercoles_T = 0;
+                           if (data[i].Miercoles_T != null)
+                               Miercoles_T = data[i].Miercoles_T;
+
+                           var Miercoles_R = 0;
+                           if (data[i].Miercoles_R != null)
+                               Miercoles_R = data[i].Miercoles_R;
+
+                           var Jueves_T = 0;
+                           if (data[i].Jueves_T != null)
+                               Jueves_T = data[i].Jueves_T;
+
+                           var Jueves_R = 0;
+                           if (data[i].Jueves_R != null)
+                               Jueves_R = data[i].Jueves_R;
+
+                           var Viernes_T = 0;
+                           if (data[i].Viernes_T != null)
+                               Viernes_T = data[i].Viernes_T;
+
+                           var Viernes_R = 0;
+                           if (data[i].Viernes_R != null)
+                               Viernes_R = data[i].Viernes_R;
+
+                           var Sabado_T = 0;
+                           if (data[i].Sabado_T != null)
+                               Sabado_T = data[i].Sabado_T;
+
+
+                           var Sabado_R = 0;
+                           if (data[i].Sabado_R != null)
+                               Sabado_R = data[i].Sabado_R;
+
+                           var Domingo_T = 0;
+                           if (data[i].Domingo_T != null)
+                               Domingo_T = data[i].Domingo_T;
+
+                           var Domingo_R = 0;
+                           if (data[i].Domingo_R != null)
+                               Domingo_R = data[i].Domingo_R;
+
+                           var Total_T = 0;
+                           if (data[i].Total_T != null)
+                               Total_T = data[i].Total_T;
+
+                           var Total_R = 0;
+                           if (data[i].Total_R != null)
+                               Total_R = data[i].Total_R;
+
+                           var Comentarios = "";
+                           if (data[i].Comentarios != null)
+                               Comentarios = data[i].Comentarios;
+
+                           var BTS = 0;
+                           if (data[i].BTS != null)
+                               BTS = data[i].BTS;
+
+                           var PastDue = 0;
+                           if (data[i].PastDue != null)
+                               PastDue = data[i].PastDue;
+
+                           var Inventarios = 0;
+                           if (data[i].Inventarios != null)
+                               Inventarios = data[i].Inventarios;
+
+                           var BanderaDia = 0;
+                           if (data[i].BanderaDia != null)
+                               BanderaDia = data[i].BanderaDia;
+
+
+                           newHtml += '<tr style="font-size:10px;"><td class="text-center">' + JobNumber + '</td>' +
+                               '<td class="text-center">' + DieSet + '</td>' +
+                               '<td class="text-center">' + NoParte + '</td>' +
+                               '<td>' + Descripcion + '</td>' +
+                               '<td class="text-center" style="background-color:' + colorFondo(Lunes_T, Lunes_R, BanderaDia, 'Lun') + ';">' + Lunes_R + '/' + Lunes_T + '</td>' +
+                               '<td class="text-center" style="background-color:' + colorFondo(Martes_T, Martes_R, BanderaDia, 'Mar') + ';">' + Martes_R + '/' + Martes_T + '</td>' +
+                               '<td class="text-center" style="background-color:' + colorFondo(Miercoles_T, Miercoles_R, BanderaDia, 'Mie') + ';">' + Miercoles_R + '/' + Miercoles_T + '</td>' +
+                               '<td class="text-center" style="background-color:' + colorFondo(Jueves_T, Jueves_R, BanderaDia, 'Jue') + ';">' + Jueves_R + '/' + Jueves_T + '</td>' +
+                               '<td class="text-center" style="background-color:' + colorFondo(Viernes_T, Viernes_R, BanderaDia, 'Vie') + ';">' + Viernes_R + '/' + Viernes_T + '</td>' +
+                               '<td class="text-center" style="background-color:' + colorFondo(Sabado_T, Sabado_R, BanderaDia, 'Sab') + ';">' + Sabado_R + '/' + Sabado_T + '</td>' +
+                               '<td class="text-center" style="background-color:' + colorFondo(Domingo_T, Domingo_R, BanderaDia, 'Dom') + ';">' + Domingo_R + '/' + Domingo_T + '</td>' +
+                               '<td class="text-center">' + Comentarios + '</td>' +
+                               '<td class="text-center" style="background-color:' + colorFondo(Total_T, Total_R, 1, 'Tot') + ';">' + Total_R + '/' + Total_T + '</td>';
+                           if (BTS != 0) {
+                               newHtml += '<td class="text-center">' + BTS.toFixed(2) + '</td>';
+                           } else {
+                               newHtml += '<td class="text-center">0</td>';
+                           }
+
+                           newHtml += '<td class="text-center">' + PastDue + '</td>' +
+                               '<td class="text-center">' + Inventarios + '</td>' +
+                               '</tr>';
+
+                           PonerColor = true;
+                       }
+
+                       $('#llenar').html(newHtml);
+                       Desactivar();
+
+            },
+            error: function (ex) {
+                Desactivar();
+                var r = jQuery.parseJSON(response.responseText);
+                alert("Message: " + r.Message);
+                alert("StackTrace: " + r.StackTrace);
+                alert("ExceptionType: " + r.ExceptionType);
+            }
+               });
+
+    }
+
+    
+    function colorFondo(cantidad_T, cantidad_R, BanderaDia, Dia) {
+        
+        var colorRtn = "#fcfcfc";
+        var dias = ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"];
+        var f = new Date();
+        var dt = new Date(f.getMonth()+1 + '/' + f.getDate() + '/' + f.getFullYear());
+        var DiadelaSemana = dias[dt.getUTCDay()];
+
+        //alert('BanderaDia: ' + BanderaDia);
+        //alert('PonerColor: ' + PonerColor);
+        if (PonerColor || Dia == 'Tot') {
+
+            if (cantidad_T > 0 && cantidad_R == 0) {
+                colorRtn = "#FF0000";
+            } else if (cantidad_R > cantidad_T) {
+                colorRtn = "#00CC00";
+            } else if (cantidad_T > 0 && cantidad_R > 0 && cantidad_R < cantidad_T) {
+                colorRtn = "#FF9090";
+            }
+        }
+
+        if (!BanderaDia)
+            if (Dia == DiadelaSemana) {
+                PonerColor = false;
+            }
+
+        
+        return colorRtn;
+    }
+
+</script>
+
+<div class="content-wrapper">
+    <div id="contenido" class="content-body">
+
+
+
+        <section id="dashboard-ecommerce" style="margin-top:150px;">
+            <div class="row">
+                <div class="col">
+                    <div class="col-xl-12 " style="position: relative;
+                                top: -150px;
+                                color: black;">
+                        <div class="card marketing-campaigns">
+                            <div class="card-header d-flex justify-content-between  pb-1">
+
+                                <div class="card-header">
+                                    <!-- head -->
+                                    <div>
+                                        <h5 class="card-title">Lost Size Calculator</h5>
+                                    </div>
+                                    <!-- Single Date Picker and button -->
+                                    <div class="heading-elements">
+                                        <ul class="list-inline mb-0">
+                                            <li>
+                                                <fieldset class="has-icon-left">
+                                                    <input type="text" id="inicio" name="inicio" value="@ViewBag.fin" class="form-control single-daterange" />
+                                                    <div class="form-control-position">
+                                                        <i class="bx bx-calendar font-medium-1"></i>
+                                                    </div>
+                                                </fieldset>
+                                            </li>
+                                            <li>
+                                                <fieldset>
+                                                    <select id="IdLinea" name="IdLinea" class="form-control" style="width:200px;">
+                                                        <option value="0">[ LINEAS ]</option>
+                                                        <option value="31">LINEA A</option>
+                                                        <option value="32">LINEA D</option>
+                                                        <option value="37">ZETA 5</option>
+                                                        <option value="38">ZETA 4</option>
+                                                    </select>
+                                                </fieldset>
+                                            </li>
+                                            <li>
+                                                <fieldset class="has-icon-left">
+                                                    <button class="btn btn-primary" onclick="javascript: news();">Search</button>
+                                                </fieldset>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <!-- table start -->
+                                <table id="table-marketing-campaigns" class="table table-borderless table-marketing-campaigns mb-0">
+                                    <thead>
+                                        <tr style="font-size:10px;">
+                                            <th class="text-center">Job #</th>
+                                            <th class="text-center">Die Set</th>
+                                            <th class="text-center">Part #</th>
+                                            <th class="text-center">Descripción</th>
+                                            <th class="text-center">Lun</th>
+                                            <th class="text-center">Mar</th>
+                                            <th class="text-center">Mie</th>
+                                            <th class="text-center">Jue</th>
+                                            <th class="text-center">Vie</th>
+                                            <th class="text-center">Sab</th>
+                                            <th class="text-center">Dom</th>
+                                            <th class="text-center">Comentarios</th>
+                                            <th class="text-center">Total Semana</th>
+                                            <th class="text-center">BTS</th>
+                                            <th class="text-center">PastDue</th>
+                                            <th class="text-center">Inventarios</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="llenar">
+                                    </tbody>
+                                </table>
+                                <!-- table ends -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </section>
+
+
+    </div>
+</div>
+<script>
+    var IdLinea = "" + @ViewBag.IdLinea;
+    if (IdLinea != 0)
+    document.getElementById("IdLinea").value = IdLinea;
+
+</script>

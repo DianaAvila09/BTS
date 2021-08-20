@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html class="loading" lang="en" data-textdirection="ltr">
+<!-- BEGIN: Head-->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Jesús Farfán Luna">
+    <title>@ViewBag.Title - Estampados Magna</title>
+    <link rel="apple-touch-icon" href="~/app-assets/images/ico/apple-icon-120.png">
+    <link rel="shortcut icon" type="image/x-icon" href="~/app-assets/images/ico/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,600%7CIBM+Plex+Sans:300,400,500,600,700" rel="stylesheet">
+
+    <!-- BEGIN: Vendor CSS-->
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/tables/datatable/datatables.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/charts/apexcharts.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/pickers/daterange/daterangepicker.css">
+    <!-- END: Vendor CSS-->
+    <!-- BEGIN: Theme CSS-->
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css/colors.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css/components.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css/themes/dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css/themes/semi-dark-layout.css">
+    <!-- END: Theme CSS-->
+    <!-- BEGIN: Page CSS-->
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css/core/menu/menu-types/horizontal-menu.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css/pages/dashboard-analytics.css">
+    <!-- END: Page CSS-->
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="~/assets/css/style.css">
+    <!-- END: Custom CSS-->
+    <link href="~/app-assets/css/Varios.css" rel="stylesheet" />
+</head>
+<!-- END: Head-->
+<!-- BEGIN: Body-->
+<body class="horizontal-layout horizontal-menu    footer-static  " data-open="hover" data-menu="horizontal-menu" data-col="2-columns">
+
+    <!-- BEGIN: Header-->
+    <nav class="header-navbar navbar-expand-lg navbar navbar-with-menu navbar-fixed bg-primary navbar-brand-center">
+        <div class="navbar-header d-xl-block d-none">
+            <ul class="nav navbar-nav flex-row">
+                <li class="nav-item">
+                    <a class="navbar-brand" onclick="javascript: Inicio();">
+                        <div class="brand-logo"></div>
+                        <h2 class="brand-text mb-0">Estampados Magna</h2>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="navbar-wrapper">
+            <div class="navbar-container content">
+                <div class="navbar-collapse" id="navbar-mobile">
+                    <div class="mr-auto float-left bookmark-wrapper d-flex align-items-center">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item mobile-menu mr-auto"><a class="nav-link nav-menu-main menu-toggle" href="#"><i class="bx bx-menu"></i></a></li>
+                        </ul>
+
+
+                    </div>
+                    <ul class="nav navbar-nav float-right d-flex align-items-center">
+
+                        <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-expand"><i class="ficon bx bx-fullscreen"></i></a></li>
+
+
+                        <li class="dropdown dropdown-user nav-item">
+                            <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
+                                <div class="user-nav d-lg-flex d-none"><span class="user-name">@User.Identity.Name</span><span class="user-status">Disponible</span></div><span><img class="round" src="~/app-assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"></span>
+                            </a>
+                            <!--
+                            <div class="dropdown-menu dropdown-menu-right pb-0">
+                                <a class="dropdown-item" href="http://cslhomepage/"><i class="bx bx-power-off mr-50"></i> Logout</a>
+                            </div>
+                            -->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- END: Header-->
+    <!-- BEGIN: Main Menu-->
+    <!-- END: Main Menu-->
+    <!-- BEGIN: Content-->
+    <div class="app-content content">
+        <div id="loader1" class="container" style="display:none;">
+            <div class="row">                
+                <div class="col-5"></div>
+                <div class="col-2">
+                    <br />
+                    <div class="loader-wrapper">
+                        <div class="loader"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @RenderBody()
+    </div>
+    <!--END: Content-->
+    <!-- BEGIN: Footer-->
+    <footer class="footer footer-static footer-light">
+        <p class="clearfix mb-0">
+            <span class="float-left d-inline-block">2021 &copy;Estampados Magna</span><span class="float-right d-sm-inline-block d-none">Crafted with<i class="bx bxs-heart pink mx-50 font-small-3"></i>by<a class="text-uppercase" href="https://Magna.com" target="_blank">Magna International</a></span>
+            <button class="btn btn-primary btn-icon scroll-top" type="button"><i class="bx bx-up-arrow-alt"></i></button>
+        </p>
+    </footer>
+    <!-- END: Footer-->
+    <!-- BEGIN: Vendor JS-->
+    @Scripts.Render("~/app-assets/vendors/js/vendors.min.js")
+
+    <!-- BEGIN Vendor JS-->
+    <!-- BEGIN: Page Vendor JS-->
+    @Scripts.Render("~/app-assets/vendors/js/ui/jquery.sticky.js")
+    @Scripts.Render("~/app-assets/vendors/js/tables/datatable/datatables.min.js")
+    @Scripts.Render("~/app-assets/vendors/js/tables/datatable/datatables.checkboxes.min.js")
+    @Scripts.Render("~/app-assets/vendors/js/charts/apexcharts.min.js")
+    @Scripts.Render("~/app-assets/vendors/js/pickers/daterange/moment.min.js")
+    @Scripts.Render("~/app-assets/vendors/js/pickers/daterange/daterangepicker.js")
+    <!-- END: Page Vendor JS-->
+    <!-- BEGIN: Theme JS-->
+
+    @Scripts.Render("~/app-assets/js/scripts/configs/horizontal-menu.js")
+    @Scripts.Render("~/app-assets/js/core/app-menu.js")
+    @Scripts.Render("~/app-assets/js/core/app.js")
+    @Scripts.Render("~/app-assets/js/scripts/components.js")
+    @Scripts.Render("~/app-assets/js/scripts/footer.js")
+
+
+    <!-- END: Theme JS-->
+    <!-- BEGIN: Page JS-->
+
+    @Scripts.Render("~/app-assets/js/scripts/pages/table-extended.js")
+
+
+
+
+
+    <!-- END: Page JS-->
+    <!-- RenderSection("scripts", required: false)-->
+    <script>
+        function Inicio() {
+            location.href = "Index?IdLinea=" + document.getElementById("IdLinea").value;
+        }
+
+        function Enviar() {
+            location.href = "Views?IdLinea=" + document.getElementById("IdLinea").value;
+        }
+
+        function Activar() {
+
+            var element2 = document.getElementById("contenido");
+            element2.style.display = "none";
+
+            var element = document.getElementById("loader1");
+            element.style.display = "block";
+        }
+
+        function Desactivar() {
+            var element = document.getElementById("loader1");
+            element.style.display = "none";
+
+            var element2 = document.getElementById("contenido");
+            element2.style.display = "block";
+
+        }
+
+    </script>
+</body>
+<!-- END: Body-->
+</html>

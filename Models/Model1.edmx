@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EtiquetasCI_EMMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="sp_BTS_CalculaLostSize" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FechaHoy" Type="datetime" Mode="In" />
+        </Function>
+        <EntityContainer Name="EtiquetasCI_EMMModelStoreContainer" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EtiquetasCI_EMMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="EtiquetasCI_EMMEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="sp_BTS_CalculaLostSize" ReturnType="Collection(EtiquetasCI_EMMModel.sp_BTS_CalculaLostSize_Result2)">
+            <Parameter Name="FechaHoy" Mode="In" Type="DateTime" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_BTS_CalculaLostSize_Result">
+          <Property Type="Int32" Name="JobNumber" Nullable="false" />
+          <Property Type="Int32" Name="DieSet" Nullable="true" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="Lunes_T" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Lunes_R" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Martes_T" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Martes_R" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Miercoles_T" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Miercoles_R" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Jueves_T" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Jueves_R" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Viernes_T" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Viernes_R" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Sabado_T" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Sabado_R" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Domingo_T" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Domingo_R" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Total_T" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Total_R" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="String" Name="Comentarios" Nullable="true" />
+          <Property Type="Decimal" Name="BTS" Nullable="true" Precision="5" Scale="2" />
+          <Property Type="String" Name="NoParte" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="PastDue" Nullable="true" />
+          <Property Type="Int32" Name="Inventarios" Nullable="true" />
+          <Property Type="String" Name="Linea" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="sp_BTS_CalculaLostSize_Result1">
+          <Property Type="Int32" Name="JobNumber" Nullable="false" />
+          <Property Type="Int32" Name="DieSet" Nullable="true" />
+          <Property Type="String" Name="NoParte" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="Lunes_T" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Lunes_R" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Martes_T" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Martes_R" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Miercoles_T" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Miercoles_R" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Jueves_T" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Jueves_R" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Viernes_T" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Viernes_R" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Sabado_T" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Sabado_R" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Domingo_T" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Domingo_R" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Total_T" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Total_R" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="String" Name="Comentarios" Nullable="true" />
+          <Property Type="Decimal" Name="BTS" Nullable="true" Precision="5" Scale="2" />
+          <Property Type="Int32" Name="PastDue" Nullable="true" />
+          <Property Type="Int32" Name="Inventarios" Nullable="true" />
+          <Property Type="Int32" Name="IdLinea" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_BTS_CalculaLostSize_Result2">
+          <Property Type="Int32" Name="JobNumber" Nullable="false" />
+          <Property Type="Int32" Name="DieSet" Nullable="true" />
+          <Property Type="String" Name="NoParte" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="Lunes_T" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Lunes_R" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Martes_T" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Martes_R" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Miercoles_T" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Miercoles_R" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Jueves_T" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Jueves_R" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Viernes_T" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Viernes_R" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Sabado_T" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Sabado_R" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Domingo_T" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Domingo_R" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Total_T" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="Total_R" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="String" Name="Comentarios" Nullable="true" />
+          <Property Type="Decimal" Name="BTS" Nullable="true" Precision="5" Scale="2" />
+          <Property Type="Int32" Name="PastDue" Nullable="true" />
+          <Property Type="Int32" Name="Inventarios" Nullable="true" />
+          <Property Type="Int32" Name="IdLinea" Nullable="true" />
+          <Property Type="Boolean" Name="BanderaDia" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EtiquetasCI_EMMModelStoreContainer" CdmEntityContainer="EtiquetasCI_EMMEntities" >
+          <FunctionImportMapping FunctionImportName="sp_BTS_CalculaLostSize" FunctionName="EtiquetasCI_EMMModel.Store.sp_BTS_CalculaLostSize">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EtiquetasCI_EMMModel.sp_BTS_CalculaLostSize_Result2">
+                <ScalarProperty Name="JobNumber" ColumnName="JobNumber" />
+                <ScalarProperty Name="DieSet" ColumnName="DieSet" />
+                <ScalarProperty Name="NoParte" ColumnName="NoParte" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Lunes_T" ColumnName="Lunes_T" />
+                <ScalarProperty Name="Lunes_R" ColumnName="Lunes_R" />
+                <ScalarProperty Name="Martes_T" ColumnName="Martes_T" />
+                <ScalarProperty Name="Martes_R" ColumnName="Martes_R" />
+                <ScalarProperty Name="Miercoles_T" ColumnName="Miercoles_T" />
+                <ScalarProperty Name="Miercoles_R" ColumnName="Miercoles_R" />
+                <ScalarProperty Name="Jueves_T" ColumnName="Jueves_T" />
+                <ScalarProperty Name="Jueves_R" ColumnName="Jueves_R" />
+                <ScalarProperty Name="Viernes_T" ColumnName="Viernes_T" />
+                <ScalarProperty Name="Viernes_R" ColumnName="Viernes_R" />
+                <ScalarProperty Name="Sabado_T" ColumnName="Sabado_T" />
+                <ScalarProperty Name="Sabado_R" ColumnName="Sabado_R" />
+                <ScalarProperty Name="Domingo_T" ColumnName="Domingo_T" />
+                <ScalarProperty Name="Domingo_R" ColumnName="Domingo_R" />
+                <ScalarProperty Name="Total_T" ColumnName="Total_T" />
+                <ScalarProperty Name="Total_R" ColumnName="Total_R" />
+                <ScalarProperty Name="Comentarios" ColumnName="Comentarios" />
+                <ScalarProperty Name="BTS" ColumnName="BTS" />
+                <ScalarProperty Name="PastDue" ColumnName="PastDue" />
+                <ScalarProperty Name="Inventarios" ColumnName="Inventarios" />
+                <ScalarProperty Name="IdLinea" ColumnName="IdLinea" />
+                <ScalarProperty Name="BanderaDia" ColumnName="BanderaDia" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

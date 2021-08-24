@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace BTS.Controllers
 {
+    //bts
     public class HomeController : Controller
     {
         EtiquetasCI_EMMEntities sp = new EtiquetasCI_EMMEntities();

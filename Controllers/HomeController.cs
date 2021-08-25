@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace BTS.Controllers
 {
-    //bts clase
+    //bts clase prueba
     public class HomeController : Controller
     {
         EtiquetasCI_EMMEntities sp = new EtiquetasCI_EMMEntities();
